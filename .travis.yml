@@ -1,0 +1,23 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - PACKAGE="rpm-repos"
+    - VERSION="1"
+    - RELEASE="1"
+    - DIST="el7"
+    - DIR="/data"
+    - CONTAINER="robertdebock/docker-centos7-full"
+    
+script:
+# Build the RPM(s).
+- docker run -v $(pwd):${DIR} ${CONTAINER} /bin/sh ${DIR}/build.sh -p ${PACKAGE} -v ${VERSION} -r ${RELEASE} -d ${DIST}
+
+# Publish to Amazon S3.
+- docker run -v $(pwd):${DIR} ${CONTAINER} /bin/sh ${DIR}/publish-s3.sh -r eu-west-1 -b apache-tomcat7.el7 -k ${S3KEY} -s ${S3SECRET} -d /data/repository/
+
+notifications:
+  email: false
