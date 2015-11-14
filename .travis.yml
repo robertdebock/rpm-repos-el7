@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - PACKAGE="rpm-repos"
+    - PACKAGE="rpm-repos-el7"
     - VERSION="1"
     - RELEASE="1"
     - DIST="el7"
