@@ -112,6 +112,7 @@ main() {
     exit 3
   fi
   chown root:root /data/${package}.spec
+  cp /data/rpm-repos-el7.repo /data/rpmbuild/SOURCES/
   yum -y groupinstall "Development Tools"
   rpmbuild --define "_topdir /data/rpmbuild" -bb /data/${package}.spec
   mkdir /data/repository/
