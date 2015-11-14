@@ -1,6 +1,6 @@
-Name: rpm-repos
+Name: rpm-repos-el7
 Version: 1
-Release: 1.el7
+Release: 1
 BuildArch: noarch
 Summary: Reposity for RPMs by Robert de Bock for Enterprise Linux 7
 Group: Development/Tools
