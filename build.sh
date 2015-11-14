@@ -114,6 +114,8 @@ main() {
   chown root:root /data/${package}.spec
   yum -y groupinstall "Development Tools"
   rpmbuild --define "_topdir /data/rpmbuild" -bb /data/${package}.spec
+  mkdir /data/repository/
+  cp /data/rpmbuild/RPMS/noarch/${package}-${version}-${release.${dist}.noarch.rpm /data/repository/
 }
 
 readargs "$@"
