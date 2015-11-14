@@ -9,19 +9,10 @@ License: Apache Software License.
 %description
 Contains the repository that yum can use to install rpms.
 
-%build
-cat << EOF >> rpm-repos-el7.repo
-[apache-tomcat-el7]
-name=Apache Tomcat for Enterprise Linux 7
-baseurl=https://s3-eu-west-1.amazonaws.com/apache-tomcat7.el7/
-enabled=1
-gpgcheck=0
-EOF
-
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
-cp rpm-repos-el7.repo $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
+cp /data/rpmbuild/SOURCES/rpm-repos-el7.repo $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
