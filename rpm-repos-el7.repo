@@ -3,3 +3,9 @@ name=Apache Tomcat 7 EL7
 baseurl=https://s3-eu-west-1.amazonaws.com/apache-tomcat7.el7/
 enabled=1
 gpgcheck=0
+
+[keychain.el7]
+name=Keychain EL7
+baseurl=https://s3-eu-west-1.amazonaws.com/keychain.el7/
+enabled=1
+gpgcheck=0
