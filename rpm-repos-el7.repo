@@ -1,3 +1,9 @@
+[rpm-repos-el7]
+name=Repository containing RPM's created by Robert de Bock.
+baseurl=https://s3-eu-west-1.amazonaws.com/rpm-repos-el7/
+enabled=1
+gpgcheck=0
+
 [apache-tomcat7.el7]
 name=Apache Tomcat 7 EL7
 baseurl=https://s3-eu-west-1.amazonaws.com/apache-tomcat7.el7/
