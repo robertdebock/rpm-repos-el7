@@ -16,6 +16,9 @@ script:
 # Build the RPM(s).
 - docker run -v $(pwd):${DIR} ${CONTAINER} /bin/sh ${DIR}/build.sh -p ${PACKAGE} -v ${VERSION} -r ${RELEASE} -d ${DIST}
 
+# Create a repository. (Can be used to publish to i.e. Amazon S3)
+- docker run -v $(pwd):${DIR} ${CONTAINER} /bin/sh ${DIR}/createrepo.sh
+
 # Publish to Amazon S3.
 - docker run -v $(pwd):${DIR} ${CONTAINER} /bin/sh ${DIR}/publish-s3.sh -r eu-west-1 -b rpm-repos-el7 -k ${S3KEY} -s ${S3SECRET} -d /data/repository/
 
